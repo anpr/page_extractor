@@ -9,6 +9,7 @@ jupyter = "*"
 pandas = "*"
 scikit-learn = "*"
 "beautifulsoup4" = "*"
+algorithmia = "*"
 
 [dev-packages]
 
