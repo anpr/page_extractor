@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 import Algorithmia
-from write_csv import get_raw, to_lines
+from generate_data.write_csv import pickle_load, to_title_lines
 
-lines = to_lines(get_raw())
+lines = to_title_lines(pickle_load())
 urls = [line[0] for line in lines]
 input = urls
 
