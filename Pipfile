@@ -8,6 +8,7 @@ ipython = "*"
 jupyter = "*"
 pandas = "*"
 scikit-learn = "*"
+"beautifulsoup4" = "*"
 
 [dev-packages]
 
