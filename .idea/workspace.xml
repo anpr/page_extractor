@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="4a34053a-97b4-4a9d-ac44-3a833df4c8eb" name="Default" comment="" />
+=======
+    <list default="true" id="4a34053a-97b4-4a9d-ac44-3a833df4c8eb" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scrape/ghostdriver.log" afterPath="$PROJECT_DIR$/scrape/ghostdriver.log" />
+    </list>
+>>>>>>> rebase
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
