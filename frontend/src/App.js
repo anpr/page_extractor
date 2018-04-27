@@ -5,23 +5,37 @@ import './App.css';
 
 class App extends Component {
 
-  this.state = {
-    title:null
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: null
+    }
+    this.apiCall = this.apiCall.bind(this);
+    this.setTitle = this.setTitle.bind(this);
   }
 
   _handleKeyPress(e) {
     if (e.key === 'Enter') {
-      this.apiCall(e.target.value);
+      this.setState({
+        title:null
+      })
+      this.apiCall(e.target.value, this);
     }
   }
 
-  apiCall(URL){
+  setTitle(title) {
+    console.log(title)
+  }
 
-    fetch('http://localhost:5000/extract?url='+URL+'/', {mode: 'cors'})
+  apiCall(URL, x){
+    fetch('http://localhost:5000/extract?url='+URL, {mode: 'cors'})
       .then(
         function(response) {
           response.json().then(function(data) {
-            console.log(data);
+            console.log(data[0]);
+            x.setState({
+              title: data[0].title
+            });
           });
         }
       )
@@ -47,8 +61,11 @@ class App extends Component {
           <div className="slide">
             <div className="slide-inner">
               <div className="cooltext">
-                <input onKeyPress={this._handleKeyPress.bind(this)} className=" cooltext cooltextinput" type="text" name="name" />
+                <textarea onKeyPress={this._handleKeyPress.bind(this)} className=" cooltext cooltextinput" type="text" name="name" />
             </div>
+            {this.state.title?
+              <h6 className="titleresponse">{this.state.title}</h6>
+               : null}
             </div>
           </div>
         </p>
