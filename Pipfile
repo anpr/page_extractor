@@ -11,6 +11,8 @@ scikit-learn = "*"
 "beautifulsoup4" = "*"
 algorithmia = "*"
 toolz = "*"
+flask-restful = "*"
+textblob = "*"
 
 [dev-packages]
 
