@@ -1,0 +1,128 @@
+{
+  "name": "musicathon page extractor",
+  "pages": [
+    {
+      "default": true,
+      "name": "Wochenrueckblick",
+      "id": "review",
+      "description": "simple RESTool frontend using musicathon api",
+      "methods": {
+        "getAll": {
+          "label": "Wochenrückblock",
+          "url": "http://localhost:5000/extract",
+          "dataPath": null,
+          "queryParams": [
+            {
+              "name": "url",
+              "value": "http://minutenmusik.de/wochenrueckblick/die-fantastischen-vier-mani-orrason-shaw-mendes-snow-patrol-the-cool-quest-wochenrueckblick-kw-12-2018",
+              "label": "URL"
+            }
+          ],
+          "display": {
+            "type": "table",
+            "fields": [
+              {
+                "name": "url",
+                "type": "text",
+                "label": "url"
+              },
+              {
+                "name": "thumbnail",
+                "type": "image",
+                "label": "thumbnail"
+              },
+              {
+                "name": "summary",
+                "type": "text",
+                "label": "summary"
+              },
+              {
+                "name": "algorithmia_title",
+                "type": "text",
+                "label": "algorithmia_title"
+              },
+              {
+                "name": "title",
+                "type": "text",
+                "label": "title"
+              },
+              {
+                "name": "sentiment",
+                "type": "text",
+                "label": "sentiment"
+              },
+              {
+                "name": "language",
+                "type": "text",
+                "label": "language"
+              },
+              {
+                "name": "publication_date",
+                "type": "text",
+                "label": "polarity"
+              },
+              {
+                "name": "date",
+                "type": "text",
+                "label": "date"
+              }
+            ]
+          }
+        },
+        "post": {
+          "url": "http://127.0.0.1:5000/extract",
+            "fields": [
+              {
+                "name": "url",
+                "type": "text",
+                "label": "url"
+              },
+              {
+                "name": "thumbnail",
+                "type": "image",
+                "label": "thumbnail"
+              },
+              {
+                "name": "summary",
+                "type": "text",
+                "label": "summary"
+              },
+              {
+                "name": "algorithmia_title",
+                "type": "text",
+                "label": "algorithmia_title"
+              },
+              {
+                "name": "title",
+                "type": "text",
+                "label": "title"
+              },
+              {
+                "name": "sentiment",
+                "type": "text",
+                "label": "sentiment"
+              },
+              {
+                "name": "language",
+                "type": "text",
+                "label": "language"
+              },
+              {
+                "name": "publication_date",
+                "type": "text",
+                "label": "polarity"
+              },
+              {
+                "name": "date",
+                "type": "text",
+                "label": "date"
+              }
+            ]
+        },
+        "delete": {
+          "url": "http://127.0.0.1:5000/extract"
+        }
+      }
+    }
+  ]
+}
