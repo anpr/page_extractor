@@ -59,23 +59,25 @@ def fetch_title(soup):
 
     if not title or len(title) < 3:
         title = soup.h2 and (soup.h2.string or fetch_title_string(list(soup.h2.strings)))
-        for i in soup.h2.parents:
-            try:
-                if i['id'] == 'header':
-                    title = None
-                    break
-            except KeyError:
-                pass
+        if title:
+            for i in soup.h2.parents:
+                try:
+                    if i['id'] == 'header':
+                        title = None
+                        break
+                except KeyError:
+                    pass
 
     if not title or len(title) < 3:
         title = soup.h3 and (soup.h3.string or fetch_title_string(list(soup.h3.strings)))
-        for i in soup.h3.parents:
-            try:
-                if i['id'] == 'header':
-                    title = None
-                    break
-            except KeyError:
-                pass
+        if title:
+            for i in soup.h3.parents:
+                try:
+                    if i['id'] == 'header':
+                        title = None
+                        break
+                except KeyError:
+                    pass
 
 
     # 2nd rule
