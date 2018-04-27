@@ -1,27 +1,19 @@
 from pprint import pprint
 
-import Algorithmia
+from textblob import TextBlob
 from toolz import dissoc, merge
-
-client = Algorithmia.client('simxQ3PHFsh2hvuINmujcBBza9V1')
 
 
 def get_sentiment(text):
-    algo = client.algo('nlp/SocialSentimentAnalysis/0.1.4')
+    blob = TextBlob(text)
+    
+    polarity = blob.sentiment.polarity
 
-    try:
-        response = algo.pipe({'sentence': text})
-    except Exception as error:
-        # Algorithm error if, for example, the input is not correctly formatted
-        print(error)
-        return 'Unknown'
-
-    pprint(dissoc(response.result[0], 'sentence'))
-
-    compound = response.result[0]['compound']
-    if compound < -0.2:
+    print("***")
+    print(polarity)
+    if polarity < -0.2:
         return 'Negative'
-    elif compound > 0.2:
+    elif polarity > 0.2:
         return 'Positive'
     return 'Neutral'
 

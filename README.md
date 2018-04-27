@@ -3,7 +3,7 @@
 1. Install Python and pip
 1. `pip install pipenv`
 1. `pipenv install`
-
+1. `python -m textblob.download_corpora`  # <--- Important!
 ## Start API
 
 Start the API with

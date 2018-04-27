@@ -12,6 +12,7 @@ scikit-learn = "*"
 algorithmia = "*"
 toolz = "*"
 flask-restful = "*"
+textblob = "*"
 
 [dev-packages]
 
