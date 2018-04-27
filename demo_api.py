@@ -3,7 +3,7 @@ from flask import Flask, request
 from flask_restful import Resource, Api
 from toolz import merge
 
-from api.algorithmia import algorithmia
+from api.algorithm import algorithmia
 
 app = Flask(__name__)
 api = Api(app)
