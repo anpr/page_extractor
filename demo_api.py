@@ -15,14 +15,14 @@ class PageExtractor(Resource):
     def get(self):
         url = request.args.get('url')
         result = get_result(url)
-        return merge(result,
-                     {'url': url})
+        return [merge(result,
+                     {'url': url})]
 
     def post(self):
         url = request.form['url']
         result = get_result(url)
-        return merge(result,
-                     {'url': url})
+        return [merge(result,
+                     {'url': url})]
 
 
 @app.route('/js/<path:path>')
