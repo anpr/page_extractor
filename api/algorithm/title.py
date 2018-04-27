@@ -15,11 +15,11 @@ substitutes = [
     ("// Track", ""),
     ("feat.", "ft"),
     ("–", "-"),
-    ("inkl. Video",""),
-    ("|  WR.de  | Kultur",""),
+    ("inkl. Video", ""),
+    ("|  WR.de  | Kultur", ""),
     (" // Live", ""),
 ]
-translation = "".maketrans("»«",'""')
+translation = "".maketrans("»«", '""')
 
 
 def fetch_title_string(string_list):
@@ -37,9 +37,8 @@ def fetch_title(soup):
     h1 = None
     # 1 rule
     try:
-        for h in soup.find_all("h1",limit=3):
-
-            if 'header' not in [c.name for c in h.parents] and 'site-title' not in h['class'] and "is-hidden" not in h['class']:
+        for h in soup.find_all("h1", limit=3):
+            if 'site-title' not in h['class'] and "is-hidden" not in h['class']:
                 h1 = h
                 break
     except KeyError:
@@ -59,7 +58,7 @@ def fetch_title(soup):
 
     if not title or len(title) < 3:
         title = soup.h2 and (soup.h2.string or fetch_title_string(list(soup.h2.strings)))
-        if title:
+        try:
             for i in soup.h2.parents:
                 try:
                     if i['id'] == 'header':
@@ -67,10 +66,12 @@ def fetch_title(soup):
                         break
                 except KeyError:
                     pass
+        except AttributeError:
+            pass
 
     if not title or len(title) < 3:
         title = soup.h3 and (soup.h3.string or fetch_title_string(list(soup.h3.strings)))
-        if title:
+        try:
             for i in soup.h3.parents:
                 try:
                     if i['id'] == 'header':
@@ -78,12 +79,12 @@ def fetch_title(soup):
                         break
                 except KeyError:
                     pass
-
+        except AttributeError:
+            pass
 
     # 2nd rule
     if not title or len(title) < 3:
         title = soup.title.string
-
 
     # clean up
     if title:
