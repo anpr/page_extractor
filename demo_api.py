@@ -10,6 +10,9 @@ api = Api(app)
 
 
 class PageExtractor(Resource):
+    def get(self):
+        return {'Hello', 'Page Extractor'}
+
     def post(self):
         url = request.form['url']
         result = get_result(url)
