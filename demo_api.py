@@ -12,9 +12,9 @@ api = Api(app)
 class PageExtractor(Resource):
     def post(self):
         url = request.form['url']
-        algo_dict = algorithmia.analyze_url(url)
-        return merge({'url': url },
-                     algo_dict)
+        result = algorithmia.get_result(url)
+        return merge(result,
+                     {'url': url})
 
 
 api.add_resource(PageExtractor, '/extract')

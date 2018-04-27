@@ -1,7 +1,9 @@
 #!/usr/bin/env python
+import datetime
 from pprint import pprint
 
 import Algorithmia
+from toolz import merge
 
 from api.utils import dict_slice
 
@@ -18,5 +20,18 @@ def analyze_url(url):
         return
 
     # pprint(response.result)
-    return dict_slice(response.result, {'title', 'thumbnail', 'date', 'summary', 'text'})
+    return dict_slice(response.result, {'url', 'title', 'thumbnail', 'date', 'summary', 'text'})
 
+
+def publication_date(date_str):
+    return date_str[:10]
+
+
+def with_publication_date(res_dict):
+    assert 'date' in res_dict
+
+    return merge(res_dict, {'publication_date':  publication_date(res_dict['date'])})
+
+
+def get_result(url):
+    return with_publication_date(analyze_url(url))
