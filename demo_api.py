@@ -1,11 +1,13 @@
 import sys
-from flask import Flask, request
+from flask import Flask, request, send_from_directory
 from flask_restful import Resource, Api
 from toolz import merge
+from flask_cors import CORS
 
 from api.algorithm.result import get_result
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 api = Api(app)
 
 
@@ -21,6 +23,11 @@ class PageExtractor(Resource):
         result = get_result(url)
         return merge(result,
                      {'url': url})
+
+
+@app.route('/js/<path:path>')
+def send_js(path):
+    return send_from_directory('js', path)
 
 
 api.add_resource(PageExtractor, '/extract')

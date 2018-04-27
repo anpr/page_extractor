@@ -14,6 +14,8 @@ toolz = "*"
 flask-restful = "*"
 textblob = "*"
 "bs4" = "*"
+flask = "*"
+flask-cors = "*"
 
 [dev-packages]
 
