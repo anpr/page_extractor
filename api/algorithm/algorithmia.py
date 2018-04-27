@@ -16,7 +16,11 @@ def analyze_url(url: str) -> dict:
         return
 
     # pprint(response.result)
-    return dict_slice(response.result, {'url', 'title', 'thumbnail', 'date', 'summary', 'text'})
+
+    res = dict_slice(response.result, {'url', 'title', 'thumbnail', 'date', 'summary', 'text'})
+    # Rename title to algorithmia_title so it's clear where it's coming from and to avoid name clashes
+    res['algorithmia_title'] = res.pop('title')
+    return res
 
 
 def publication_date(date_str: str) -> str:
