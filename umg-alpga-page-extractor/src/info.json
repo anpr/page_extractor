@@ -1,0 +1,24 @@
+{
+  "userDetails": {
+    "anonUser": false,
+    "userFirstName": "Swish",
+    "fromCookie": true,
+    "userLastName": "Labs"
+  },
+  "rewardsDetails": {
+
+  },
+  "loyaltyDetails": {
+    "accountCreateDt": "Thu Mar 01 15:03:34 EST 2018",
+    "birthDate": "",
+    "hasBmAccount": true
+  },
+  "cart": [
+    "73871"
+  ],
+  "cartSize": 2,
+  "showIntlSignup": false,
+  "loyaltyLaunchDate": "Mon Aug 08 19:23:59 EDT 2016",
+  "customerCookieName": "jcrew_cust",
+  "requestFromJCrewNetwork": false
+}
