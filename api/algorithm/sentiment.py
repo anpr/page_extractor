@@ -1,8 +1,10 @@
+from typing import Tuple
+
 from textblob import TextBlob
 from toolz import merge
 
 
-def get_sentiment(blob):
+def get_sentiment(blob: TextBlob) -> Tuple[float, str]:
     polarity = blob.sentiment.polarity
 
     if polarity < -0.2:
@@ -15,11 +17,11 @@ def get_sentiment(blob):
     return polarity, sentiment
 
 
-def get_language(blob):
+def get_language(blob: str) -> str:
     return blob.detect_language()
 
 
-def with_sentiment(res_dict):
+def with_sentiment(res_dict: dict) -> dict:
     assert 'text' in res_dict
     blob = TextBlob(res_dict['text'])
 

@@ -6,7 +6,7 @@ from api.utils import dict_slice
 client = Algorithmia.client('simxQ3PHFsh2hvuINmujcBBza9V1')
 
 
-def analyze_url(url):
+def analyze_url(url: str) -> dict:
     algo = client.algo('web/AnalyzeURL/0.2.17')
     try:
         response = algo.pipe([url])
@@ -19,11 +19,11 @@ def analyze_url(url):
     return dict_slice(response.result, {'url', 'title', 'thumbnail', 'date', 'summary', 'text'})
 
 
-def publication_date(date_str):
+def publication_date(date_str: str) -> str:
     return date_str[:10]
 
 
-def with_publication_date(res_dict):
+def with_publication_date(res_dict: dict) -> dict:
     assert 'date' in res_dict
 
     return merge(res_dict, {'publication_date':  publication_date(res_dict['date'])})

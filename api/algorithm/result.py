@@ -4,7 +4,7 @@ from .algorithmia import analyze_url, with_publication_date
 from .sentiment import with_sentiment
 
 
-def get_result(url):
+def get_result(url: str) -> dict:
     return thread_first(url,
                         analyze_url,
                         with_publication_date,
