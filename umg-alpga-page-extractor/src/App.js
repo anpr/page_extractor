@@ -10,24 +10,29 @@ class App extends Component {
     this.state = {
       title: null
     }
+    this.apiCall = this.apiCall.bind(this);
+    this.setTitle = this.setTitle.bind(this);
   }
 
   _handleKeyPress(e) {
     if (e.key === 'Enter') {
-      this.apiCall(e.target.value);
+      this.apiCall(e.target.value, this);
     }
   }
 
-  apiCall(URL){
+  setTitle(title) {
+    console.log(title)
+  }
 
+  apiCall(URL, x){
     fetch('http://localhost:5000/extract?url='+URL+'/', {mode: 'cors'})
       .then(
         function(response) {
           response.json().then(function(data) {
-            console.log(data);
-            this.setState({
-              title: data.title
-            })
+            console.log(data[0]);
+            x.setState({
+              title: data[0].title
+            });
           });
         }
       )
