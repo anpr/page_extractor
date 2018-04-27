@@ -2,6 +2,8 @@ import sys
 from flask import Flask, request
 from flask_restful import Resource, Api
 
+from api.algorithmia import algorithmia
+
 app = Flask(__name__)
 api = Api(app)
 
@@ -9,7 +11,9 @@ api = Api(app)
 class PageExtractor(Resource):
     def post(self):
         url = request.form['url']
-        return {'url': url}
+        title = algorithmia.get_title(url)
+        return {'url': url,
+                'title': title}
 
 
 api.add_resource(PageExtractor, '/extract')
