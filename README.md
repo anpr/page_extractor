@@ -12,6 +12,8 @@ Start the API with
 
 Test it with:
 
+`curl "localhost:5000/extract?url=http://www.backspin.de/rae-sremmurd-wissen-solltest/"`
+
 `curl -X POST localhost:5000/extract -d "url=http://minutenmusik.de/wochenrueckblick/die-fantastischen-vier-mani-orrason-shaw-mendes-snow-patrol-the-cool-quest-wochenrueckblick-kw-12-2018"`
 
 ## Frontend
