@@ -3,7 +3,7 @@ from flask import Flask, request
 from flask_restful import Resource, Api
 from toolz import merge
 
-from api.algorithm import algorithmia
+from api.algorithm.result import get_result
 
 app = Flask(__name__)
 api = Api(app)
@@ -12,7 +12,7 @@ api = Api(app)
 class PageExtractor(Resource):
     def post(self):
         url = request.form['url']
-        result = algorithmia.get_result(url)
+        result = get_result(url)
         return merge(result,
                      {'url': url})
 
