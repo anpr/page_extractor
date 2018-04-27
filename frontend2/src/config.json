@@ -1,9 +1,9 @@
 {
-  "name": "musicathon page extractor",
+  "name": "",
   "pages": [
     {
       "default": true,
-      "name": "Wochenrueckblick",
+      "name": "",
       "id": "review",
       "description": "simple RESTool frontend using musicathon api",
       "methods": {
