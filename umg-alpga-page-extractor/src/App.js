@@ -16,6 +16,9 @@ class App extends Component {
 
   _handleKeyPress(e) {
     if (e.key === 'Enter') {
+      this.setState({
+        title:null
+      })
       this.apiCall(e.target.value, this);
     }
   }
