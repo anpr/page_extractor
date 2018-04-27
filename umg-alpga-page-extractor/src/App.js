@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   apiCall(URL, x){
-    fetch('http://localhost:5000/extract?url='+URL+'/', {mode: 'cors'})
+    fetch('http://localhost:5000/extract?url='+URL, {mode: 'cors'})
       .then(
         function(response) {
           response.json().then(function(data) {
