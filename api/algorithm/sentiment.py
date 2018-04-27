@@ -1,24 +1,30 @@
-from pprint import pprint
-
 from textblob import TextBlob
-from toolz import dissoc, merge
+from toolz import merge
 
 
-def get_sentiment(text):
-    blob = TextBlob(text)
-    
+def get_sentiment(blob):
     polarity = blob.sentiment.polarity
 
-    print("***")
-    print(polarity)
     if polarity < -0.2:
-        return 'Negative'
+        sentiment = 'Negative'
     elif polarity > 0.2:
-        return 'Positive'
-    return 'Neutral'
+        sentiment = 'Positive'
+    else:
+        sentiment = 'Neutral'
+
+    return polarity, sentiment
+
+
+def get_language(blob):
+    return blob.detect_language()
 
 
 def with_sentiment(res_dict):
     assert 'text' in res_dict
+    blob = TextBlob(res_dict['text'])
 
-    return merge(res_dict, {'sentiment': get_sentiment(res_dict['text'])})
+    polarity, sentiment = get_sentiment(blob)
+    return merge(res_dict,
+                 {'polarity': polarity,
+                  'sentiment': sentiment,
+                  'language': get_language(blob)})
