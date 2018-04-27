@@ -61,10 +61,10 @@ class App extends Component {
           <div className="slide">
             <div className="slide-inner">
               <div className="cooltext">
-                <input onKeyPress={this._handleKeyPress.bind(this)} className=" cooltext cooltextinput" type="text" name="name" />
+                <textarea onKeyPress={this._handleKeyPress.bind(this)} className=" cooltext cooltextinput" type="text" name="name" />
             </div>
             {this.state.title?
-              <h6>{this.state.title}</h6>
+              <h6 className="titleresponse">{this.state.title}</h6>
                : null}
             </div>
           </div>
