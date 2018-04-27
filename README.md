@@ -18,4 +18,15 @@ Test it with:
 
 ## Frontend
 
-TODO
+### frontend2 based on RESTool (https://github.com/dsternlicht/RESTool)
+```
+cd frontend2
+npm install
+ npm install -g @angular/cli
+ npm install typescript@'>=2.1.0 <2.4.0'
+ng serve
+```
+
+```
+http://localhost:4200/
+```
